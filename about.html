@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+
+  <!-- google fonts cdn -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- bootstrap cdn -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- css stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <title>Prism</title>
+</head>
+
+<body>
+
+  <!-- Title -->
+  <section id="title">
+    <div class="container-fluid">
+
+      <!-- Navigation Bar -->
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a href="#" class="navbar-brand">Prism</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Learn</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">About</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Title Desciption -->
+      <div class="row justify-content-center title-desc">
+
+        <div class="col-10">
+          <h1 class="about-heading">About This Project</h1>
+
+          <div id="accordion">
+
+            <div class="card text-white about-card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-dark acc-button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    About
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body about-text">
+                  <p>
+                    Cover Your Tracks is two things: a tool for users to understand how unique and identifiable their browser makes them online, and a research project to uncover the tools and techniques of online trackers and test the efficacy of
+                    privacy add-ons. Running tests on Cover Your Tracks gives you information about your own browser’s privacy protections, and also helps EFF use statistical methods to evaluate the capabilities of third-party trackers and the best
+                    forms of protection against them.
+                  </p>
+                  <p>
+                    In 2010, EFF launched this project as “Panopticlick,” a research project to investigate how unique each browser is. We gathered information about the configuration and version information from your operating system, your browser,
+                    and your plugins, and compared it to our database of many other Internet users' configurations. Then, we generated a uniqueness score letting you see how easily identifiable you might be as you surf the web. A paper reporting the
+                    early statistical results of this 2010 experiment was published in the Proceedings of the Privacy Enhancing Technologies Symposium (PETS).
+                  </p>
+                  <p>
+                    In 2015, we upgraded the project with a new feature: tracker blocker testing. Millions of Internet users are using privacy add-ons and other tools to block trackers, including tools like AdBlock, Ghostery, and Disconnect. But how
+                    well do these add-ons actually protect users from invasive tracking?
+                  </p>
+                  <p>
+                    Our new version of the project, rebranded and launched in 2020 as Cover Your Tracks, researches both how unique your browser is and how effective tracker blockers are. We analyze how well you are protected against online tracking
+                    by
+                    checking the privacy protections you have in place. The test simulates loading of various types of trackers, and determines your level of protection based on if the trackers load or not.
+                  </p>
+                  <p>
+                    Even if your privacy add-ons are working well, you may still be vulnerable if your browser fingerprint is unique. So we also analyze the uniqueness of your browser and let you know how it stacks up to other visitors we’ve observed
+                    recently. We generate a report about your tracker protections and browser fingerprint for your own use, and we’ll use anonymous results from your test when generating uniqueness results for others when they take the test.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="card text-white about-card">
+              <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                  <button class="btn btn-dark collapsed acc-button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Methodology
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body about-text">
+                  <p>
+                    The results of Cover Your Tracks use several simulated tracking domains to trigger tracker blockers. Some blockers (such as Adblock Plus or Ghostery) are triggered by URL parameters that match ads or tracking beacons. Other
+                    blockers (such as AdAway or Disconnect) match on a per-domain basis, and we strive to have our test domains included in such tools’ lists. Still other blockers (such as our own Privacy Badger) use a heuristic approach, blocking the
+                    inclusion of trackers by detecting their use across domains.
+                  </p>
+                  <p>
+                    In order to detect these different approaches, we have simulated tracking that triggers all three types of blocking. The Cover Your Tracks site generates third-party requests like:
+                    <h6>https://trackersimulator.org/?action=tracking_tally&ad_url=123456</h6>
+                    <h6>https://eviltracker.net/?action=tracking_tally&trackingserver=123456</h6>
+                    <h6>https://do-not-tracker.org/?action=tracking_tally&random=123456</h6>
+                  </p>
+                    Each of these URLs attempts to set cookies, and is loaded from three first party domains in order to trigger heuristic blocking.
+                  <p>
+                  </p>
+                  <p>
+                    The first URL simulates tracking by a visible ad (if the ad is blocked, the test passes); the second simulates a non-visible tracking beacon (if the beacon is blocked, the test passes); and the third interaction with a domain that
+                    has implemented the Do Not Track Policy (if the domain’s scripts are unblocked, the test passes).
+                  </p>
+                  <p>
+                    If the simulated ad or beacon trackers load, but with their cookies blocked, those results are reported as “partial protection”, since the site doesn’t get an easy unique identifier, but tracking by IP addresses and other means
+                    remain possible.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="card text-white about-card">
+              <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                  <button class="btn btn-dark collapsed acc-button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    What is Browser Fingerprinting?
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="card-body about-text">
+                  <p>
+                    “Browser fingerprinting” is a method of tracking web browsers by the configuration and settings information they make visible to websites, rather than traditional tracking methods such as IP addresses and unique cookies.
+                  </p>
+                  <p>
+                    Browser fingerprinting is both difficult to detect and and extremely difficult to thwart.
+                  </p>
+                  <p>
+                    When you load a web page, you will automatically broadcast certain information about your browser to the website you are visiting — as well as to any trackers embedded within the site (such as those that serve advertisements). The
+                    site you are visiting may choose to analyze your browser using JavaScript, Flash and other methods (just like Cover Your Tracks does). It may look for what types of fonts you have installed, the language you’ve set, the add-ons
+                    you’ve installed, and other factors. The site may then create a type of profile of you, tied to this pattern of characteristics associated with your browser, rather than tied to a specific tracking cookie.
+                  </p>
+                  <p>
+                    If your browser is unique, then it’s possible that an online tracker can identify you even without setting tracking cookies. While the tracker won’t know your name, they could collect a deeply personal dossier of websites you visit.
+                  </p>
+                  <p>
+                    Deleting your cookies won’t help, because it’s the characteristics of your browser configuration that are being analyzed. Read our suggestions to help defend against browser fingerprinting.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="card text-white about-card">
+              <div class="card-header" id="headingFour">
+                <h5 class="mb-0">
+                  <button class="btn btn-dark collapsed acc-button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    What is Do Not Track?
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                <div class="card-body about-text">
+                  <p>
+                    Every time your computer sends or receives information over the Web, the request begins with some short pieces of information called headers. These headers include information like what browser you're using, what language your
+                    computer is set to, and other technical details.
+                  </p>
+                  <p>
+                    Do Not Track is a simple, machine-readable header indicating that you don't want to be tracked. Because this signal is a header, and not a cookie, users can clear their cookies at will without disrupting the functionality of the Do
+                    Not Track flag.
+                  </p>
+                  <p>
+                    In all the major browsers, there is an easy way to tell websites that you do not want to be tracked by setting the Do Not Track header. (Do it yourself or install EFF’s Privacy Badger and we’ll turn it on for you in Chrome and
+                    Firefox.)
+                  </p>
+                  <p>
+                    When websites respect the Do Not Track signal, it’s easy for users to protect themselves from online tracking. The average Internet user won’t need to remember to delete cookies, install additional privacy software, or even worry
+                    about browser fingerprinting. (link to browser fingerprinting section).
+                  </p>
+                  <p>
+                    Unfortunately, most websites and online trackers — with some laudable exceptions — currently ignore the Do Not Track signal entirely.
+                  </p>
+                  <p>
+                    Setting your browser to unblock ads from websites that commit to respecting Do Not Track rewards companies that are respecting user privacy, incentivizing more companies to respect Do Not Track in order to have their ads shown at
+                    all. By preserving privacy-friendly ads, sites that rely on advertising funding can continue to thrive without adjusting their core business model, even as they respect users’ privacy choices.
+                  </p>
+                  <p>
+                    Over time, we believe we can shift the norms on the Web to ensure privacy and respect for users comes first. But that can only happen if online advertisers are incentivized to respect user choices.
+                  </p>
+
+                </div>
+              </div>
+            </div>
+            <div class="card text-white about-card">
+              <div class="card-header" id="headingFive">
+                <h5 class="mb-0">
+                  <button class="btn btn-dark collapsed acc-button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Is it possible to defend against browser fingerprinting?
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                <div class="card-body about-text">
+                  Browser fingerprinting is quite a powerful method of tracking users around the Internet. There are some defensive measures that can be taken with existing browsers, but none of them are ideal. In practice, the most realistic protection is using the Tor Browser, which has put a lot of effort into reducing browser fingerprintability. For day-to-day use, the best options are to run tools like Privacy Badger or Disconnect that will block some (but unfortunately not all) of the domains that try to perform fingerprinting, and/or to use a tool like NoScript for Firefox, which greatly reduces the amount of data available to fingerprinters.
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Script Files for Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
